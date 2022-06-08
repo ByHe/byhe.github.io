@@ -33,15 +33,15 @@
    );
  });
  
- /** Rensar cache */
- self.addEventListener('activate', (e) => {
-   e.waitUntil(caches.keys().then((keyList) => {
-     Promise.all(keyList.map((key) => {
-       if (key === cacheKey) { return; }
-       caches.delete(key);
-     }))
-   })());
- });
+/** Rensar cache */
+self.addEventListener('activate', (e) => {
+  e.waitUntil(caches.keys().then((keyList) => {
+    return Promise.all(keyList.map((key) => {
+      if (key === cacheKey) { return; }
+      return caches.delete(key);
+    }))
+  }));
+});
  
  /** cache-filer först, upddaterar cache från servern */
  self.addEventListener('fetch', function (event) {
