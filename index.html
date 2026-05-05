@@ -1,13 +1,95 @@
+
 <!DOCTYPE html>
-<html lang="sv">
+<html>
+
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Min Sida</title>
-   <link rel="stylesheet" href="styles.css">
+    <title>Kalkylator</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css?v=1.8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <script src="js/script.js?v=1.9"></script>
+
+    <!-- pwa settings -->
+    <link rel="manifest" href="manifest.json?v=1.4">
+    <meta name="theme-color" content="#000000">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" sizes="192x192" href="icons/icon-192x192.png">
+
+    <!-- IOS/IPhone/IPad -->
+    <link rel="apple-touch-startup-image" href="icons/icon-192x192.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="180x180" href="icons/icon-180x180.png" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Calculator">
+
+    <!-- Fixar länkproblem på iPhone som hoppar till safari -->
+    <script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
 </head>
+
 <body>
-   <h1>Resurser</h1>
-   <a href="./graphics/doc">GameScreen DOC</a>   
+    <main>
+        <div id="screen">
+            <div id="history"></div>
+            <div id="lcd">0</div>
+        </div>
+        <section id = 'keyBoard'>
+            <button id='clear'>AC</button>
+            <button id="back">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 5H9l-7 7 7 7h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2Z"></path>
+                    <line x1="18" y1="9" x2="12" y2="15"></line>
+                    <line x1="12" y1="9" x2="18" y2="15"></line>
+                </svg>
+            </button>
+            <button id="pow">x <sup>y</sup></button>
+            <button id='div'>/</button>
+
+            <button id='b7'>7</button>
+            <button id='b8'>8</button>
+            <button id='b9'>9</button>
+            <button id='mul'>x</button>
+            
+
+            <button id='b4'>4</button>
+            <button id='b5'>5</button>
+            <button id='b6'>6</button>
+            <button id='add'>+</button>
+           
+
+            <button id='b1'>1</button>
+            <button id='b2'>2</button>
+            <button id='b3'>3</button>
+            <button id='sub'>-</button>
+            
+            <button id='b0'>0</button>
+            <button id='para'>()</button>
+            <button id='comma'>,</button>
+            <button id='enter'>=</button>
+        </section>
+    </main>
 </body>
+<script>
+    if('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js?v=1.9').then(reg => {
+                // Kontrollera om det finns en ny version tillgänglig
+                reg.onupdatefound = () => {
+                    const installingWorker = reg.installing;
+                    installingWorker.onstatechange = () => {
+                        if (installingWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // Ny version finns - informera användaren eller ladda om
+                            console.log('Ny version tillgänglig! Ladda om appen.');
+                        }
+                    };
+                };
+            });
+        });
+    }
+</script>
 </html>
