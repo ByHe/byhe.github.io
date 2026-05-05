@@ -279,13 +279,9 @@ function calculate() {
             .replace(/\s/g, '')           // Ta bort ALLA mellanslag
             .replace(/×/g, '*')
             .replace(/÷/g, '/')
-            .replace(/\^/g, '**')
-            .replace(/[–—]/g, '-')        // Hantera iOS "Smart Punctuation" (en-dash/em-dash) till minus
-            .replace(/(\d)\(/g, '$1*(')   // Hantera implicit multiplikation: siffra före (
-            .replace(/\)(\d)/g, ')*$1')   // Hantera implicit multiplikation: ) före siffra
-            .replace(/\)\(/g, ')*(');     // Hantera implicit multiplikation: ) före (
+            .replace(/[–—]/g, '-');       // Hantera iOS "Smart Punctuation" (en-dash/em-dash) till minus
 
-        let result = eval(expression);
+        let result = math.evaluate(expression);
         
         if (!isFinite(result)) {
             lcd.textContent = "Error";

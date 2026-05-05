@@ -3,7 +3,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers (2021-06-09)
  * https://web.dev/offline-cookbook/
  */
-const cacheKey = 'cache-v3';
+const cacheKey = 'cache-v4';
 
 const cacheArray = [
   '/index.html',
@@ -21,7 +21,8 @@ const cacheArray = [
   '/icons/icon-512x512.png',
   '/css/style.css',
   '/js/script.js',
-  '/api/convert.php'
+  '/api/convert.php',
+  'https://unpkg.com/mathjs@12.4.1/lib/browser/math.js'
 ];
 
 self.addEventListener('install', event => {
