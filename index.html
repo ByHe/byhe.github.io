@@ -78,7 +78,7 @@
 <script>
     if('serviceWorker' in navigator) {
         window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js?v=1.9').then(reg => {
+            navigator.serviceWorker.register('/sw.js?v=1.92').then(reg => {
                 // Kontrollera om det finns en ny version tillgänglig
                 reg.onupdatefound = () => {
                     const installingWorker = reg.installing;

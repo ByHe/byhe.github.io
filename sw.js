@@ -3,7 +3,7 @@
  * https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Offline_Service_workers (2021-06-09)
  * https://web.dev/offline-cookbook/
  */
-const cacheKey = 'cache-v4';
+const cacheKey = 'cache-v5';
 
 const cacheArray = [
   '/index.html',
