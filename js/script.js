@@ -15,16 +15,11 @@ function init() {
 
     let keyBoard = document.getElementById('keyBoard');
     keyBoard.onpointerdown = buttonClick;
-
-    const convertBtn = document.getElementById('convertBtn');
-    convertBtn.onpointerdown = convertCurrency;
     
     // Lokalisering av knapptext
     if (!navigator.language.startsWith('sv')) {
         convertBtn.textContent = 'Convert Amount';
     }
-
-    document.getElementById('swapBtn').onpointerdown = swapCurrencies;
     
     // Starta animationen
     typeWriter("BYGREN", 0);
