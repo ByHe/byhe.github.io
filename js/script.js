@@ -16,9 +16,6 @@ function init() {
     let keyBoard = document.getElementById('keyBoard');
     keyBoard.onpointerdown = buttonClick;
 
-    // Initiera valutaomvandlare
-    getRates(); // Hämta kurser direkt vid start för att visa datum
-
     const convertBtn = document.getElementById('convertBtn');
     convertBtn.onpointerdown = convertCurrency;
     
