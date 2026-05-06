@@ -16,11 +16,6 @@ function init() {
     let keyBoard = document.getElementById('keyBoard');
     keyBoard.onpointerdown = buttonClick;
     
-    // Lokalisering av knapptext
-    if (!navigator.language.startsWith('sv')) {
-        convertBtn.textContent = 'Convert Amount';
-    }
-    
     // Starta animationen
     typeWriter("BYGREN", 0);
 }
