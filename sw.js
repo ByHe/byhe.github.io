@@ -21,7 +21,6 @@ const cacheArray = [
   '/icons/icon-512x512.png',
   '/css/style.css',
   '/js/script.js',
-  '/api/convert.php',
   'https://unpkg.com/mathjs@12.4.1/lib/browser/math.js'
 ];
 
